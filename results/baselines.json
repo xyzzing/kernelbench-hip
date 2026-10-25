@@ -1,0 +1,589 @@
+{
+ "1_Square_matrix_multiplication_.py": {
+  "problem": "1_Square_matrix_multiplication_.py",
+  "eager": {
+   "median_ms": 4.980609,
+   "mean_ms": 4.960975,
+   "std_ms": 0.15827,
+   "min_ms": 4.642966,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 4.970269,
+   "mean_ms": 4.977179,
+   "std_ms": 0.173501,
+   "min_ms": 4.568365,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 1.2
+ },
+ "2_Standard_matrix_multiplication_.py": {
+  "problem": "2_Standard_matrix_multiplication_.py",
+  "eager": {
+   "median_ms": 4.991749,
+   "mean_ms": 5.033895,
+   "std_ms": 0.21373,
+   "min_ms": 4.681407,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 5.012029,
+   "mean_ms": 5.049398,
+   "std_ms": 0.185179,
+   "min_ms": 4.673127,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 0.6
+ },
+ "3_Batched_matrix_multiplication.py": {
+  "problem": "3_Batched_matrix_multiplication.py",
+  "eager": {
+   "median_ms": 10.441704,
+   "mean_ms": 10.371147,
+   "std_ms": 0.22573,
+   "min_ms": 9.659017,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 10.439084,
+   "mean_ms": 10.395851,
+   "std_ms": 0.193468,
+   "min_ms": 9.752017,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 1.2
+ },
+ "4_Matrix_vector_multiplication_.py": {
+  "problem": "4_Matrix_vector_multiplication_.py",
+  "eager": {
+   "median_ms": 24.733712,
+   "mean_ms": 24.640366,
+   "std_ms": 0.279308,
+   "min_ms": 23.669161,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 24.788571,
+   "mean_ms": 24.697703,
+   "std_ms": 0.254289,
+   "min_ms": 23.784363,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 2.7
+ },
+ "6_Matmul_with_large_K_dimension_.py": {
+  "problem": "6_Matmul_with_large_K_dimension_.py",
+  "eager": {
+   "median_ms": 12.873952,
+   "mean_ms": 12.793784,
+   "std_ms": 0.310288,
+   "min_ms": 11.845001,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 12.839051,
+   "mean_ms": 12.733118,
+   "std_ms": 0.328902,
+   "min_ms": 12.001523,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 1.4
+ },
+ "7_Matmul_with_small_K_dimension_.py": {
+  "problem": "7_Matmul_with_small_K_dimension_.py",
+  "eager": {
+   "median_ms": 6.188204,
+   "mean_ms": 6.223569,
+   "std_ms": 0.151332,
+   "min_ms": 6.064662,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 6.195204,
+   "mean_ms": 6.2308,
+   "std_ms": 0.160317,
+   "min_ms": 6.024302,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 0.8
+ },
+ "12_Matmul_with_diagonal_matrices_.py": {
+  "problem": "12_Matmul_with_diagonal_matrices_.py",
+  "eager": {
+   "median_ms": 0.276283,
+   "mean_ms": 0.269641,
+   "std_ms": 0.018199,
+   "min_ms": 0.204002,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 0.269663,
+   "mean_ms": 0.270241,
+   "std_ms": 0.005082,
+   "min_ms": 0.252803,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 0.7
+ },
+ "16_Matmul_with_transposed_A.py": {
+  "problem": "16_Matmul_with_transposed_A.py",
+  "eager": {
+   "median_ms": 5.134873,
+   "mean_ms": 5.077697,
+   "std_ms": 0.134926,
+   "min_ms": 4.731208,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 5.162553,
+   "mean_ms": 5.126957,
+   "std_ms": 0.134482,
+   "min_ms": 4.713248,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 0.6
+ },
+ "19_ReLU.py": {
+  "problem": "19_ReLU.py",
+  "eager": {
+   "median_ms": 15.267159,
+   "mean_ms": 15.378323,
+   "std_ms": 0.388686,
+   "min_ms": 15.191358,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 15.110098,
+   "mean_ms": 15.22727,
+   "std_ms": 0.417725,
+   "min_ms": 15.014677,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 1.8
+ },
+ "23_Softmax.py": {
+  "problem": "23_Softmax.py",
+  "eager": {
+   "median_ms": 33.170933,
+   "mean_ms": 33.255543,
+   "std_ms": 0.380432,
+   "min_ms": 32.91243,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 25.118628,
+   "mean_ms": 25.202144,
+   "std_ms": 0.335003,
+   "min_ms": 25.083185,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 3.5
+ },
+ "24_LogSoftmax.py": {
+  "problem": "24_LogSoftmax.py",
+  "eager": {
+   "median_ms": 34.071064,
+   "mean_ms": 34.129555,
+   "std_ms": 0.319729,
+   "min_ms": 33.70612,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 25.09813,
+   "mean_ms": 25.184912,
+   "std_ms": 0.362048,
+   "min_ms": 25.036228,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 3.3
+ },
+ "25_Swish.py": {
+  "problem": "25_Swish.py",
+  "eager": {
+   "median_ms": 39.250666,
+   "mean_ms": 39.317702,
+   "std_ms": 0.155328,
+   "min_ms": 39.165104,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 15.084384,
+   "mean_ms": 15.074126,
+   "std_ms": 0.029174,
+   "min_ms": 14.993403,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 2.6
+ },
+ "26_GELU_.py": {
+  "problem": "26_GELU_.py",
+  "eager": {
+   "median_ms": 15.255887,
+   "mean_ms": 15.367061,
+   "std_ms": 0.387117,
+   "min_ms": 15.166526,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 15.111365,
+   "mean_ms": 15.227722,
+   "std_ms": 0.405105,
+   "min_ms": 15.012845,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 2.7
+ },
+ "88_MinGPTNewGelu.py": {
+  "problem": "88_MinGPTNewGelu.py",
+  "eager": {
+   "median_ms": 5.945485,
+   "mean_ms": 5.954392,
+   "std_ms": 0.051789,
+   "min_ms": 5.921345,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 0.742548,
+   "mean_ms": 0.751899,
+   "std_ms": 0.026852,
+   "min_ms": 0.728488,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 0.7
+ },
+ "33_BatchNorm.py": {
+  "problem": "33_BatchNorm.py",
+  "eager": {
+   "median_ms": 20.638468,
+   "mean_ms": 20.736173,
+   "std_ms": 0.684778,
+   "min_ms": 20.478065,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 14.828204,
+   "mean_ms": 14.927848,
+   "std_ms": 0.43721,
+   "min_ms": 14.754403,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 5.2
+ },
+ "36_RMSNorm_.py": {
+  "problem": "36_RMSNorm_.py",
+  "eager": {
+   "median_ms": 46.245913,
+   "mean_ms": 46.240695,
+   "std_ms": 0.060642,
+   "min_ms": 46.067192,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 20.256826,
+   "mean_ms": 20.361189,
+   "std_ms": 0.420044,
+   "min_ms": 20.084743,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 3.7
+ },
+ "37_FrobeniusNorm_.py": {
+  "problem": "37_FrobeniusNorm_.py",
+  "eager": {
+   "median_ms": 26.74844,
+   "mean_ms": 26.900605,
+   "std_ms": 0.759395,
+   "min_ms": 26.631699,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 25.84489,
+   "mean_ms": 25.994508,
+   "std_ms": 0.736792,
+   "min_ms": 25.734089,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 4.0
+ },
+ "40_LayerNorm.py": {
+  "problem": "40_LayerNorm.py",
+  "eager": {
+   "median_ms": 2.629869,
+   "mean_ms": 2.631705,
+   "std_ms": 0.019759,
+   "min_ms": 2.604509,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 1.157393,
+   "mean_ms": 1.160836,
+   "std_ms": 0.019412,
+   "min_ms": 1.144933,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 0.9
+ },
+ "47_Sum_reduction_over_a_dimension.py": {
+  "problem": "47_Sum_reduction_over_a_dimension.py",
+  "eager": {
+   "median_ms": 10.612439,
+   "mean_ms": 10.614046,
+   "std_ms": 0.021702,
+   "min_ms": 10.57264,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 10.919703,
+   "mean_ms": 11.000458,
+   "std_ms": 0.428283,
+   "min_ms": 10.337997,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 2.3
+ },
+ "48_Mean_reduction_over_a_dimension.py": {
+  "problem": "48_Mean_reduction_over_a_dimension.py",
+  "eager": {
+   "median_ms": 10.61466,
+   "mean_ms": 10.615603,
+   "std_ms": 0.023591,
+   "min_ms": 10.561959,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 10.793842,
+   "mean_ms": 10.853176,
+   "std_ms": 0.378575,
+   "min_ms": 10.189356,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 2.2
+ },
+ "51_Argmax_over_a_dimension.py": {
+  "problem": "51_Argmax_over_a_dimension.py",
+  "eager": {
+   "median_ms": 10.626341,
+   "mean_ms": 10.625615,
+   "std_ms": 0.022535,
+   "min_ms": 10.57384,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 10.935544,
+   "mean_ms": 10.94422,
+   "std_ms": 0.027895,
+   "min_ms": 10.890884,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 2.7
+ },
+ "89_cumsum.py": {
+  "problem": "89_cumsum.py",
+  "eager": {
+   "median_ms": 12.565543,
+   "mean_ms": 12.701947,
+   "std_ms": 0.65614,
+   "min_ms": 12.457142,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 11.569952,
+   "mean_ms": 11.655512,
+   "std_ms": 0.301065,
+   "min_ms": 11.47317,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 1.7
+ },
+ "42_Max_Pooling_2D.py": {
+  "problem": "42_Max_Pooling_2D.py",
+  "eager": {
+   "median_ms": 20.886578,
+   "mean_ms": 20.833932,
+   "std_ms": 0.247174,
+   "min_ms": 19.671225,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 8.495217,
+   "mean_ms": 8.468546,
+   "std_ms": 0.143871,
+   "min_ms": 7.787209,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 9.7
+ },
+ "45_Average_Pooling_2D.py": {
+  "problem": "45_Average_Pooling_2D.py",
+  "eager": {
+   "median_ms": 21.86517,
+   "mean_ms": 22.095575,
+   "std_ms": 1.335841,
+   "min_ms": 20.343912,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 21.824729,
+   "mean_ms": 22.187331,
+   "std_ms": 1.253341,
+   "min_ms": 20.271433,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 2.4
+ },
+ "50_conv_standard_2D__square_input__square_kernel.py": {
+  "problem": "50_conv_standard_2D__square_input__square_kernel.py",
+  "eager": {
+   "median_ms": 8.343056,
+   "mean_ms": 8.346639,
+   "std_ms": 0.057832,
+   "min_ms": 8.220814,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 8.304795,
+   "mean_ms": 8.30372,
+   "std_ms": 0.039839,
+   "min_ms": 8.192374,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 1.5
+ },
+ "87_conv_pointwise_2D.py": {
+  "problem": "87_conv_pointwise_2D.py",
+  "eager": {
+   "median_ms": 23.454688,
+   "mean_ms": 23.556866,
+   "std_ms": 0.51066,
+   "min_ms": 22.978224,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 23.364449,
+   "mean_ms": 23.487671,
+   "std_ms": 0.499,
+   "min_ms": 22.922464,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 2.6
+ },
+ "97_ScaledDotProductAttention.py": {
+  "problem": "97_ScaledDotProductAttention.py",
+  "eager": {
+   "median_ms": 59.899868,
+   "mean_ms": 59.945011,
+   "std_ms": 0.277955,
+   "min_ms": 59.250999,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 74.457813,
+   "mean_ms": 74.494874,
+   "std_ms": 0.239012,
+   "min_ms": 74.0299,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 9.8
+ },
+ "94_MSELoss.py": {
+  "problem": "94_MSELoss.py",
+  "eager": {
+   "median_ms": 31.21652,
+   "mean_ms": 31.215544,
+   "std_ms": 0.045632,
+   "min_ms": 31.13792,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 9.727873,
+   "mean_ms": 9.992502,
+   "std_ms": 0.692834,
+   "min_ms": 9.685272,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 1.5
+ },
+ "95_CrossEntropyLoss.py": {
+  "problem": "95_CrossEntropyLoss.py",
+  "eager": null,
+  "eager_error": "NotImplementedError('\"nll_loss_forward_reduce_cuda_kernel_2d_index\" not implemented for \\'Float\\'')",
+  "compiled": null,
+  "compiled_error": "TorchRuntimeError('Dynamo failed to run FX node with fake tensors: call_function <function cross_entropy at 0x7fef291dfa00>(*(FakeTensor(..., device=\\'cuda:0\\', size=(32768, 4096)), FakeTensor(..., de"
+ },
+ "13_Matmul_for_symmetric_matrices.py": {
+  "problem": "13_Matmul_for_symmetric_matrices.py",
+  "eager": {
+   "median_ms": 5.021258,
+   "mean_ms": 5.02379,
+   "std_ms": 0.164868,
+   "min_ms": 4.637813,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compiled": {
+   "median_ms": 5.021898,
+   "mean_ms": 5.026303,
+   "std_ms": 0.140263,
+   "min_ms": 4.745574,
+   "n": 100,
+   "stall_flag": false
+  },
+  "compile_s": 0.6
+ }
+}

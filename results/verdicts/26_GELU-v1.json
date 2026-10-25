@@ -1,0 +1,70 @@
+{
+ "problem": "26_GELU_.py",
+ "candidate": "candidates/26_GELU_/v1.py",
+ "protected_eval_sha": "ebc3ffd54754d3b1c262f016de6d6ef23b8b0731f030e205e5c218cebe4163b5",
+ "tol": 0.01,
+ "warmup": 5,
+ "trials": 100,
+ "torch": "2.10.0+rocm7.0",
+ "hip": "7.0.51831",
+ "device": "AMD Radeon Graphics",
+ "static_check": {
+  "ok": true,
+  "violations": []
+ },
+ "compile_s": 20.9,
+ "parity": {
+  "parity": true,
+  "trials_passed": 5,
+  "recompute_check": true,
+  "trials": [
+   {
+    "seed": 0,
+    "pass": true
+   },
+   {
+    "seed": 1,
+    "pass": true
+   },
+   {
+    "seed": 2,
+    "pass": true
+   },
+   {
+    "seed": 3,
+    "pass": true
+   },
+   {
+    "seed": 4,
+    "pass": true
+   }
+  ]
+ },
+ "cand_time": {
+  "median_ms": 14.824712,
+  "mean_ms": 14.881848,
+  "std_ms": 0.336274,
+  "min_ms": 14.763031,
+  "n": 100,
+  "stall_flag": false
+ },
+ "eager_time": {
+  "median_ms": 15.045973,
+  "mean_ms": 15.168744,
+  "std_ms": 0.401798,
+  "min_ms": 14.992193,
+  "n": 100,
+  "stall_flag": false
+ },
+ "compiled_time": {
+  "median_ms": 15.235055,
+  "mean_ms": 15.358858,
+  "std_ms": 0.433003,
+  "min_ms": 15.145834,
+  "n": 100,
+  "stall_flag": false
+ },
+ "speedup_eager": 1.0149,
+ "speedup_compiled": 1.0277,
+ "milestone": 3
+}

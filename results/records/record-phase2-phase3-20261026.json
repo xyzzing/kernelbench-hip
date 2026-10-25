@@ -1,0 +1,68 @@
+{
+ "record": "record-phase2-phase3-20261026",
+ "session": "KernelBench-HIP pilot, phases 2-3: baselines, agent loop, milestone table",
+ "date": "2026-10-26",
+ "final_state_24_attempted_of_30": {
+  "milestone_3_beats_eager_and_compiled": {
+   "19_ReLU": "1.016x / 1.031x",
+   "25_Swish": "2.641x / 1.016x — eager runs sigmoid+mul as 2 passes + a 6.4 GiB temp; ours is one pass",
+   "26_GELU": "1.015x / 1.028x",
+   "88_MinGPTNewGelu": "8.612x / 1.065x — eager 5-op chain; single fused tanh-GELU pass",
+   "6_Matmul_largeK": "1.031x / 1.029x — split-K: rocBLAS runs this shape at ~78 GB/s; ours balances it",
+   "12_Matmul_diagonal": "1.234x / 1.171x — reference is broadcast row-scale, not a matmul; one elementwise pass",
+   "4_Matvec_K1M": "2.035x / 2.041x — A is 8.6 GiB; torch's split runs at 350 GB/s, ours ~700"
+  },
+  "milestone_2_beats_eager": {
+   "40_LayerNorm": "2.137x / 0.942x",
+   "94_MSELoss": "2.723x / 0.849x — fused sub+square+reduce vs eager 3-pass chain",
+   "42_MaxPool2D": "1.011x / 0.411x",
+   "36_RMSNorm": "1.345x / 0.594x"
+  },
+  "milestone_1_parity_only": [
+   "37_FrobeniusNorm 0.957x", "47_Sum_dim1 0.814x", "48_Mean_dim1 0.815x",
+   "23_Softmax 0.838x", "24_LogSoftmax 0.852x", "1_Square_sgemm 0.323x (8.9 vs 27.5 TFLOPS rocBLAS)",
+   "13_Symmetric 0.323x", "16_TransposedA 0.337x", "7_SmallK 0.140x", "33_BatchNorm 0.065x",
+   "51_Argmax 0.675x"
+  ],
+  "open_failure": {
+   "3_Batched": "kernel WEDGES (GPU 100%, never completes) — twice; killed via subprocess isolation; root cause TBD, recorded honestly as 900s-timeout verdict (results/verdicts/3_Batched-v5.json). The non-batched sgemm from the same source completed fine (problems 1/13/16)."
+  }
+ },
+ "not_attempted_with_reasons": [
+  "45_Average_Pooling_2D (pooling covered by 42)",
+  "50/87 conv (rocDNN-backed; direct conv out of pilot budget)",
+  "89_cumsum (scan class; torch optimized scan expected to hold)",
+  "95_CrossEntropyLoss (CARD-INFEASIBLE: the eager baseline itself OOMs the 24 GiB card)",
+  "97_ScaledDotProductAttention (FA-class; out of pilot budget)"
+ ],
+ "agent_loop_evidence": "failures were diagnosed and fixed across attempts: RMSNorm OOM->split kernels->sliced parity->copy_ buffer->addressing bug (batch term xF) = M2 over 4 iterations (v1-v8 verdicts); 3_Batched wedged twice -> subprocess isolation now kills and records; argmax long-long symbol -> int64_t; 4_Matvec routed to single-input sliced parity by mistake -> guard restored. Verdict trail in results/verdicts/.",
+ "harness_upgrades_forced_by_reality": [
+  "phase timeouts (SIGALRM) - but NOTE: cannot break a GPU sync hang (handler pends inside C call); subprocess-per-candidate with SIGKILL is the real guard",
+  "sliced parity for oversized problems (3 x 7.5 GiB working sets) with persistent device buffer + copy_ per seed (per-seed .to() churn OOMs)",
+  "R2 recompute digest = min/max at 1e-4-of-range (whole-tensor sums false-fail on atomic jitter)",
+  "chunked allclose 256 MiB (1 GiB chunks OOM'd 3-tensor parity)",
+  "milestone_table.py: every number names arms + verdict file; not-attempted list with reasons"
+ ],
+ "ops_incidents": [
+  "2 wedged-kernel windows killed by hand; one kill hit the wrapper bash (unit not restored) and one orphaned eval python held /dev/kfd 28 min blocking strata-8081 startup - found via fuser /dev/kfd, killed, engine recovered immediately (health 200)",
+  "one window burned by a NameError (signal import) - harness preflight added before every window",
+  "one verdict file poisoned by mid-write subprocess read (4_Matvec-v2) - deleted, re-run clean"
+ ],
+ "claims": [
+  "24 of 30 KernelBench L1 problems evaluated on gfx1100 with the CUDA-Agent milestone protocol: 7x M3, 4x M2, 11x M1, 1 open (3_Batched wedge)",
+  "the M3 class is consistent: eager multi-pass chains (fused single-pass wins 1.3-8.6x) and rocBLAS-weak shapes (huge-K, matvec-K1M, broadcast-scale)",
+  "harness survives adversarial reality: wedges, OOMs, dtype symbol mismatches - all became verdicts, none became silent passes"
+ ],
+ "non_claims": [
+  "NOT SOTA claims - single-shot drafts, n=1 per problem, no iteration budget like the paper's RL training",
+  "no training/RL anywhere",
+  "not publishable yet per user decision (local-first); numbers need a review pass before any external claim"
+ ],
+ "next": [
+  "3_Batched wedge root-cause (suspect: batched grid.z=128 x LDS interaction; consult AIG HIP-GPUMode batched-gemm records)",
+  "iterate M1 class with AIG corpus as drafting reference (sgemm to WMMA/tiled-elite; softmax online single-pass)",
+  "remaining 6 problems if user wants full coverage",
+  "publish decision is the USER'S: repo public + KernelBench upstream integrations issue (#73) + x.com card"
+ ],
+ "logs": ["results/batch1.log", "results/batch2.log", "results/batch2b-2g.log", "results/milestone-table.md", "results/milestone-table.json", "results/verdicts/"]
+}

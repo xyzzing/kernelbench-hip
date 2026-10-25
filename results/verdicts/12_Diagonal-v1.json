@@ -1,0 +1,71 @@
+{
+ "problem": "12_Matmul_with_diagonal_matrices_.py",
+ "candidate": "candidates/12_Matmul_with_diagonal_matrices_/v1.py",
+ "protected_eval_sha": "f88b5fce1aaa3569be9473734c33fa0fe7c80c0d64078281c537de30e0ef0e4c",
+ "tol": 0.01,
+ "warmup": 5,
+ "trials": 100,
+ "torch": "2.10.0+rocm7.0",
+ "hip": "7.0.51831",
+ "device": "AMD Radeon Graphics",
+ "static_check": {
+  "ok": true,
+  "violations": []
+ },
+ "compile_s": 21.1,
+ "parity": {
+  "parity": true,
+  "trials_passed": 5,
+  "recompute_check": true,
+  "trials": [
+   {
+    "seed": 0,
+    "pass": true
+   },
+   {
+    "seed": 1,
+    "pass": true
+   },
+   {
+    "seed": 2,
+    "pass": true
+   },
+   {
+    "seed": 3,
+    "pass": true
+   },
+   {
+    "seed": 4,
+    "pass": true
+   }
+  ],
+  "mode": "whole-tensor"
+ },
+ "cand_time": {
+  "median_ms": 0.230922,
+  "mean_ms": 0.228215,
+  "std_ms": 0.006456,
+  "min_ms": 0.206002,
+  "n": 100,
+  "stall_flag": false
+ },
+ "eager_time": {
+  "median_ms": 0.284963,
+  "mean_ms": 0.285933,
+  "std_ms": 0.004813,
+  "min_ms": 0.277683,
+  "n": 100,
+  "stall_flag": false
+ },
+ "compiled_time": {
+  "median_ms": 0.270342,
+  "mean_ms": 0.266889,
+  "std_ms": 0.009967,
+  "min_ms": 0.231003,
+  "n": 100,
+  "stall_flag": false
+ },
+ "speedup_eager": 1.234,
+ "speedup_compiled": 1.1707,
+ "milestone": 3
+}

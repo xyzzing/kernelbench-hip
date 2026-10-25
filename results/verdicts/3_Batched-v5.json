@@ -1,0 +1,6 @@
+{
+ "problem": "3_Batched_matrix_multiplication.py",
+ "candidate": "candidates/3_Batched_matrix_multiplication/v1.py",
+ "milestone": -1,
+ "why": "eval killed at 900s wall (wedged kernel suspected; HIP context destroyed)"
+}

@@ -1,0 +1,4 @@
+(node:2601895) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `zcode --trace-warnings ...` to show where the warning was created)
+/usr/sbin/xdg-mime: line 885: qtpaths: command not found
+Gtk-Message: 23:31:40.122: Failed to load module "appmenu-gtk-module"

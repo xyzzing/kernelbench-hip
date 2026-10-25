@@ -1,0 +1,50 @@
+{
+ "record": "record-phase0-phase1-20261025",
+ "session": "KernelBench-HIP pilot, phases 0-1",
+ "date": "2026-10-25",
+ "source_motivation": "arXiv 2602.24286 (CUDA-Agent, ByteDance Seed/Tsinghua): agentic-RL CUDA kernel writer. RL legs rejected (128-GPU pool, no local training). Adopted: environment/eval protocol (milestone reward -1/+1/+2/+3, anti-reward-hacking), training-free agent loop with the session model as drafting agent.",
+ "environment": {
+  "gpu": "AMD Radeon RX 7900 XTX (gfx1100), 24 GiB",
+  "torch": "2.10.0+rocm7.0 (cp314 wheel, download.pytorch.org/whl/rocm7.0)",
+  "hip": "7.0.51831 (bundled) on ROCm 7.1.1 Fedora userspace",
+  "triton": "3.6.0 (triton-rocm)",
+  "python": "3.14.8 (/usr/bin/python3.14; venv MUST be built with the absolute path — zcode AppImage PATH shim poisons `python3.14`)",
+  "repo": "~/projects/kernelbench-hip (separate repo, per user)"
+ },
+ "gates": [
+  {"gate": "disk", "result": "pass", "evidence": "83 GiB free /home; venv ~4 GiB"},
+  {"gate": "python-with-rocm-wheels", "result": "pass", "evidence": "cp314 wheels exist for torch 2.10.0+rocm7.0 (index query)"},
+  {"gate": "torch-sees-card", "result": "pass", "evidence": "results/sanity-gpu-w1.json: eager_mm_ok, 23.98 GiB"},
+  {"gate": "inductor-on-gfx1100", "result": "pass", "evidence": "results/sanity-gpu-w1.json: gelu/softmax/mm+add all compile (the +3 milestone tier is live)"},
+  {"gate": "subset-loads", "result": "pass", "evidence": "30/30 problems (harness/problems.py self-check)"},
+  {"gate": "harness-end-to-end", "result": "pass", "evidence": "19_ReLU v1: milestone 3, parity 5/5 + recompute ok, cand 14.84 ms vs eager 15.08 (1.0163x) vs compiled 15.29 (1.0305x), no stalls (results/verdicts/19_ReLU-v1.json)"}
+ ],
+ "traps_found": [
+  "zcode AppImage shadows python3.14 in PATH -> venv python symlinked to the desktop app; fixed by absolute-path venv + env -i everywhere (docs/gfx1100-notes.md §1)",
+  "tool-shell PYTHONPATH leak (~/.local + projects/sinter) preempts venv site-packages; pip silently no-ops claiming 'torch already satisfied' (2.14.0+cpu user-site)",
+  "torch cpp_extension emits -isystem /usr/include on the HIP branch (CUDA branch HAS the guard, HIP branch doesn't) -> all #include_next <stdlib.h>/<math.h> fail on host AND device passes; fixed by monkeypatching include_paths (harness/eval_protected.py::_patched_load_inline); minimal repro verified",
+  "Fedora hipcc default = 13-arch fat binaries; PYTORCH_ROCM_ARCH=gfx1100 pins it (read at call time)",
+  "extension cache (torch_extensions/py314_cpu/<name>) replays stale build.ninja after env changes; rm -rf needed",
+  "fp64 upcast in digests (t.sum(dtype=float64)) allocs 12 GiB on 1.6G-elem tensors -> OOM; chunked fp32 digests now",
+  "paranoia item: zcode desktop-hook noise pollutes stdout AND redirected fds; workloads write their own JSON, stdout never trusted"
+ ],
+ "landscape": {
+  "kernelbench_rocm_port": "none found (searched 2026-10-25) — the pilot's eval remains unoccupied ground",
+  "amd_aig_datasets": "v0.2 published by AMD: HIP-CudaAgent 5,388 (paper's recipe HIP-ified), HIP-GPUMode 5,910, HIP-to-HIP 34,368, AICUDA 14,282, ROCm-lib QA, Triton sets; VALIDATION_PROTOCOL.md = same generate-evaluate-reflect loop, 1e-4 tolerance; = training corpus, NOT an independent eval; local reference: third_party/aig/ (6k subset + docs, 53 MB)"
+ },
+ "claims": [
+  "harness reproduces KernelBench correctness+timing protocol on HIP/gfx1100 (evidence: ReLU verdict)",
+  "first candidate reaches milestone 3 on the bandwidth-bound ReLU problem"
+ ],
+ "non_claims": [
+  "NOT a benchmark result yet — n=1 problem, pilot subset only",
+  "NO training/RL anywhere in this pilot",
+  "NO strata-amd files changed"
+ ],
+ "next": [
+  "baselines sweep 30 problems (running)",
+  "candidate batches: activations/norms/reductions, then matmul family",
+  "phase record + milestone table; publish decision is the user's"
+ ],
+ "logs": ["results/sanity-gpu-w1.{json,log}", "results/e2e-relu-v1.log", "results/baselines.log"]
+}

@@ -1,0 +1,13 @@
+{
+ "torch": "2.10.0+rocm7.0",
+ "cuda_available": true,
+ "device": "AMD Radeon Graphics",
+ "hip": "7.0.51831",
+ "vram_total_gb": 23.98,
+ "eager_mm_ok": true,
+ "inductor_gelu": true,
+ "inductor_softmax": true,
+ "inductor_mm_add": true,
+ "triton": "3.6.0",
+ "vram_free_gb_after": 23.65
+}

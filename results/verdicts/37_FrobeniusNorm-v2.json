@@ -1,0 +1,19 @@
+{
+ "problem": "37_FrobeniusNorm_.py",
+ "candidate": "candidates/37_FrobeniusNorm_/v1.py",
+ "protected_eval_sha": "d2f46b13f73f3f9aa313dff1b1696142b8ba528d060dc6aea28ca720c3630657",
+ "tol": 0.01,
+ "warmup": 5,
+ "trials": 100,
+ "torch": "2.10.0+rocm7.0",
+ "hip": "7.0.51831",
+ "device": "AMD Radeon Graphics",
+ "static_check": {
+  "ok": false,
+  "violations": [
+   "syntax-error: unterminated string literal (detected at line 48) (<unknown>, line 48)"
+  ]
+ },
+ "milestone": -1,
+ "why": "static anti-hack violation"
+}

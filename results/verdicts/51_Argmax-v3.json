@@ -1,0 +1,71 @@
+{
+ "problem": "51_Argmax_over_a_dimension.py",
+ "candidate": "candidates/51_Argmax_over_a_dimension/v1.py",
+ "protected_eval_sha": "ecf86b2582e24e7e6d3f76028bee5161b018b7ca886a094becc87bfb666d1b8b",
+ "tol": 0.01,
+ "warmup": 5,
+ "trials": 100,
+ "torch": "2.10.0+rocm7.0",
+ "hip": "7.0.51831",
+ "device": "AMD Radeon Graphics",
+ "static_check": {
+  "ok": true,
+  "violations": []
+ },
+ "compile_s": 21.2,
+ "parity": {
+  "parity": true,
+  "trials_passed": 5,
+  "recompute_check": true,
+  "trials": [
+   {
+    "seed": 0,
+    "pass": true
+   },
+   {
+    "seed": 1,
+    "pass": true
+   },
+   {
+    "seed": 2,
+    "pass": true
+   },
+   {
+    "seed": 3,
+    "pass": true
+   },
+   {
+    "seed": 4,
+    "pass": true
+   }
+  ],
+  "mode": "sliced"
+ },
+ "cand_time": {
+  "median_ms": 15.74893,
+  "mean_ms": 15.742731,
+  "std_ms": 0.069551,
+  "min_ms": 15.560568,
+  "n": 100,
+  "stall_flag": false
+ },
+ "eager_time": {
+  "median_ms": 10.625268,
+  "mean_ms": 10.626424,
+  "std_ms": 0.022563,
+  "min_ms": 10.566448,
+  "n": 100,
+  "stall_flag": false
+ },
+ "compiled_time": {
+  "median_ms": 10.95899,
+  "mean_ms": 11.130079,
+  "std_ms": 0.650385,
+  "min_ms": 10.89621,
+  "n": 100,
+  "stall_flag": false
+ },
+ "speedup_eager": 0.6747,
+ "speedup_compiled": 0.6959,
+ "milestone": 1
+}

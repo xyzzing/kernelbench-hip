@@ -1,0 +1,18 @@
+{
+ "problem": "3_Batched_matrix_multiplication.py",
+ "candidate": "candidates/3_Batched_matrix_multiplication/v1.py",
+ "protected_eval_sha": "19f76aee1bb8d7a119372f5020fa8db64ad9cf1870119ae62f76d4d2cc0cfe8b",
+ "tol": 0.01,
+ "warmup": 5,
+ "trials": 100,
+ "torch": "2.10.0+rocm7.0",
+ "hip": "7.0.51831",
+ "device": "AMD Radeon Graphics",
+ "static_check": {
+  "ok": true,
+  "violations": []
+ },
+ "milestone": -1,
+ "why": "compile failed: NameError: name 'signal' is not defined",
+ "compile_s": 0.0
+}

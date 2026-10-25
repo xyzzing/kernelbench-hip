@@ -1,0 +1,70 @@
+{
+ "problem": "37_FrobeniusNorm_.py",
+ "candidate": "candidates/37_FrobeniusNorm_/v1.py",
+ "protected_eval_sha": "d2f46b13f73f3f9aa313dff1b1696142b8ba528d060dc6aea28ca720c3630657",
+ "tol": 0.01,
+ "warmup": 5,
+ "trials": 100,
+ "torch": "2.10.0+rocm7.0",
+ "hip": "7.0.51831",
+ "device": "AMD Radeon Graphics",
+ "static_check": {
+  "ok": true,
+  "violations": []
+ },
+ "compile_s": 20.8,
+ "parity": {
+  "parity": true,
+  "trials_passed": 5,
+  "recompute_check": true,
+  "trials": [
+   {
+    "seed": 0,
+    "pass": true
+   },
+   {
+    "seed": 1,
+    "pass": true
+   },
+   {
+    "seed": 2,
+    "pass": true
+   },
+   {
+    "seed": 3,
+    "pass": true
+   },
+   {
+    "seed": 4,
+    "pass": true
+   }
+  ]
+ },
+ "cand_time": {
+  "median_ms": 27.262226,
+  "mean_ms": 27.335362,
+  "std_ms": 0.555903,
+  "min_ms": 27.214224,
+  "n": 100,
+  "stall_flag": false
+ },
+ "eager_time": {
+  "median_ms": 26.075134,
+  "mean_ms": 26.265941,
+  "std_ms": 0.873238,
+  "min_ms": 26.023811,
+  "n": 100,
+  "stall_flag": false
+ },
+ "compiled_time": {
+  "median_ms": 26.079653,
+  "mean_ms": 26.234995,
+  "std_ms": 0.717295,
+  "min_ms": 25.956053,
+  "n": 100,
+  "stall_flag": false
+ },
+ "speedup_eager": 0.9565,
+ "speedup_compiled": 0.9566,
+ "milestone": 1
+}
