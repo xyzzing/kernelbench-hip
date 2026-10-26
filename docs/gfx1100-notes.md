@@ -1,6 +1,35 @@
 # gfx1100 / ROCm HIP notes — knowledge base for HIP kernel work
 
-Everything here was **measured on this box** (7900 XTX, gfx1100, Fedora 44,
+## 0. Portability map — what transfers to YOUR card
+
+Findings sort into three layers. Before reusing anything below, know which
+layer it lives in:
+
+| layer | applies to | items here |
+| --- | --- | --- |
+| **distro/toolchain** | every AMD card on a similar OS stack | §1 (python/venv poisoning, PYTHONPATH leak), §2 (the `-isystem /usr/include` include-chain bug, extension-cache staleness, `ROCM_PATH`), §5's window/hygiene pattern |
+| **VRAM-class** | scales with GiB, not ISA | §3 (fp64-upcast OOM, chunked allclose, digest rules, sliced parity) — thresholds should scale with `torch.cuda.mem_get_info()`, constants here are 24 GiB-sized |
+| **arch-specific** | gfx1100 (RDNA3) ONLY | §4's achieved bandwidth numbers and every candidates/ verdict, wave32 default, 64 KB LDS, the rocBLAS/inductor behavior observed here |
+
+**Arch families people run (torch-ROCm supports):**
+
+| family | cards (gfx) | what differs vs gfx1100 |
+| --- | --- | --- |
+| RDNA3 | 7900 XTX/XT/GRE (gfx1100), 7800 XT (gfx1101), 7600 (gfx1102), iGPU gfx1150/1151 | these notes; wave32 |
+| RDNA4 | 9070-class (gfx1200/gfx1201) | different WMMA generation — different kernels win; re-measure everything |
+| RDNA2 | 6800/6900 (gfx1030) | no f32 WMMA; rocBLAS-artifact class behavior; different arms entirely |
+| CDNA | MI-series (gfx90a/942/950) | wave64, MFMA — different kernel culture, different rooflines |
+
+**Rule that follows:** a candidate or optimization measured only on one arch is
+evidence for that arch alone — it must not become a default elsewhere (this is
+also the discipline Strata's arch-dispatch + opt-in pattern enforces upstream).
+
+Set `PYTORCH_ROCM_ARCH` to *your* arch wherever this doc says gfx1100. Per-card
+baseline submissions: see CONTRIBUTING.md.
+
+---
+
+Everything below was **measured on this box** (7900 XTX, gfx1100, Fedora 44,
 ROCm 7.1.1 system + torch 2.10.0+rocm7.0 wheel), 2026-10-25/26, unless a
 source says otherwise. Each item names how it was proven. Several items
 transfer 1:1 to any HIP build on this machine (including strata-amd).

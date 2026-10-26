@@ -97,6 +97,16 @@ repros in [`docs/gfx1100-notes.md`](docs/gfx1100-notes.md); the include-chain
 bug is filed upstream as
 [pytorch#202007](https://github.com/pytorch/pytorch/issues/202007).
 
+## Run it on your card
+
+The harness is card-agnostic; the results here are not (they are gfx1100-only).
+Per-card baseline rows are a first-class contribution — see
+[CONTRIBUTING.md](CONTRIBUTING.md) for the ground rules, the
+`results/<gfx-arch>-<card>/` layout, and the **Baseline report** issue template.
+`docs/gfx1100-notes.md` starts with a **portability map** sorting every finding
+into distro-level (transfers), VRAM-class (scales with GiB), and arch-level
+(gfx1100 only, re-measure everything).
+
 ## License
 
 MIT for everything in this repo (see [LICENSE](LICENSE)). KernelBench
